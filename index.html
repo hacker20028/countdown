@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Until We Meet Again ❤️</title>
-    <style>
-        * {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Until We Meet Again ❤️</title>
+  <style>
+    /* --- Made with Love for my Hru --- */
+    * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -182,140 +183,142 @@
                 font-size: 1.5rem;
             }
         }
-    </style>
+  </style>
 </head>
 <body>
-    <div class="floating-hearts" id="floatingHearts"></div>
+  <div class="floating-hearts" id="floatingHearts"></div>
+  
+  <div class="container">
+    <h1 class="title">Until We Meet Again</h1>
+    <p class="subtitle"> 🐻 & 🐥</p>
     
-    <div class="container">
-        <h1 class="title">Until We Meet Again</h1>
-        <p class="subtitle"> 🐻 &  🐥</p>
-        
-        <div class="countdown" id="countdown">
-            <div class="time-unit">
-                <span class="time-number" id="days">00</span>
-                <span class="time-label">Days</span>
-            </div>
-            <div class="time-unit">
-                <span class="time-number" id="hours">00</span>
-                <span class="time-label">Hours</span>
-            </div>
-            <div class="time-unit">
-                <span class="time-number" id="minutes">00</span>
-                <span class="time-label">Minutes</span>
-            </div>
-            <div class="time-unit">
-                <span class="time-number" id="seconds">00</span>
-                <span class="time-label">Seconds</span>
-            </div>
-        </div>
-        
-        <div class="hearts">💕 ❤️ 💖 ❤️ 💕</div>
-        
-        <p class="message" id="message">
-            I miss you Hru 🥺
-        </p>
-        
+    <div class="countdown" id="countdown">
+      <div class="time-unit">
+        <span class="time-number" id="days">00</span>
+        <span class="time-label">Days</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-number" id="hours">00</span>
+        <span class="time-label">Hours</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-number" id="minutes">00</span>
+        <span class="time-label">Minutes</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-number" id="seconds">00</span>
+        <span class="time-label">Seconds</span>
+      </div>
     </div>
+    
+    <div class="hearts">💕 ❤️ 💖 ❤️ 💕</div>
+    
+    <p class="message" id="message">
+      I miss you Hru 🥺
+    </p>
+    
+  </div>
 
-    <script>
-        let countdownDate = new Date('2026-07-07T15:33:00').getTime(); // Default: July 7th, 2026 at 3:33 PM
-        let countdownInterval;
-        let messageInterval;
-        let currentMessageIndex = 0;
+  <script>
+    let countdownDate = new Date('2026-07-07T15:33:00').getTime(); 
+    let currentMessageIndex = 0;
 
-        const messages = [
-            "I miss you Hru 🥺",
-            "Can't wait to see you Pippo😭🐥",
-            "You're only my Gadhiii😤🫏",
-            "My heart beats only for you bebe💖",
-            "Counting every second until I hold you🫂",
-            "You're my whole universe Cutiee✨",
-            "Missing your hugs so muchhhh🥺❤️",
-            "Can't wait to see your beautiful smile😍",
-            "You make everything better my love💕",
-            "Forever yours, my Sardard💖🐻",
-            "Dreaming of our future together✨",
-            "You're the best thing in my life🥰",
-            "Missing your voice and laughter😭💗",
-            "Can't wait to make more memories🫶",
-            "You complete me in every way💫"
-        ];
+    const messages = [
+  "I miss you Hru 🥺",
+  "Can't wait to see you Pippo😭🐥",
+  "You're only MY GADHIIII😤🫏",
+  "My heart beats only for you bebe💖",
+  "Counting every second until I hold you🫂",
+  "You're my whole universe Cutiee✨",
+  "Missing your hugs so muchhhh🥺❤️",
+  "Can't wait to see your beautiful smile😍",
+  "You make everything better my love💕",
+  "Forever yours, my Princess💖👑",
+  "Dreaming of our future together✨",
+  "You're the best thing in my life🥰",
+  "Missing your voice and smile😭💗",
+  "Can't wait to make more memories🫶",
+  "You complete me in every way cutiee💫",
+  "Life feels empty without you Pippo🥺💔",
+  "Every moment apart feels like forever⏳💞",
+  "You’re the first and last thought of my day🌙☀️",
+  "My safe place is in your arms always🫂💕",
+  "Even distance can’t stop my love for you🌏❤️",
+  "You’re my cutest distraction bebe🥰🐥",
+  "Hru + Aaru = Forever 🐻❤️🐥",
+  "Every heartbeat whispers your name💓✨",
+  "I fall in love with you again every day😍🌹",
+  "You’re my destiny, my everything💖🌌",
+  "I can’t wait for all our silly moments together😂💕",
+  "My love grows stronger every second we’re apart⏰💗",
+  "One lifetime with you won’t be enough💍💞",
+  "My Pippo, my world, my happiness🐥❤️",
+  "Forever and always, just you & me 💕♾️"
+];
 
-        // Load saved data
-        if (localStorage.getItem('meetingDate')) {
-            countdownDate = parseInt(localStorage.getItem('meetingDate'));
-        }
 
-        function updateMessage() {
-            document.getElementById('message').textContent = messages[currentMessageIndex];
-            currentMessageIndex = (currentMessageIndex + 1) % messages.length;
-        }
+    // Load saved data
+    if (localStorage.getItem('meetingDate')) {
+      countdownDate = parseInt(localStorage.getItem('meetingDate'));
+    }
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+    function updateMessage() {
+      document.getElementById('message').textContent = messages[currentMessageIndex];
+      currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+    }
 
-            if (distance < 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-                document.getElementById('message').textContent = "It's time! You should be together now! 🎉❤️";
-                return;
-            }
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (distance < 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        document.getElementById('message').textContent = "It's time! You should be together now! 🎉❤️";
+        return;
+      }
 
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        function setMessage() {
-            const messageInput = document.getElementById('messageInput');
-            if (messageInput.value.trim()) {
-                document.getElementById('message').textContent = messageInput.value.trim();
-                localStorage.setItem('customMessage', messageInput.value.trim());
-                messageInput.value = '';
-                alert('Message updated! 💕');
-            }
-        }
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
 
-        function createFloatingHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'floating-heart';
-            heart.innerHTML = ['💕', '❤️', '💖', '💗', '💘'][Math.floor(Math.random() * 5)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
-            
-            document.getElementById('floatingHearts').appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
-        }
+    function createFloatingHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.innerHTML = ['💕', '❤️', '💖', '💗', '💘'][Math.floor(Math.random() * 5)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+      
+      document.getElementById('floatingHearts').appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
 
-        // Start the countdown
-        updateCountdown();
-        countdownInterval = setInterval(updateCountdown, 1000);
+    // Start the countdown
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-        // Create floating hearts periodically
-        setInterval(createFloatingHeart, 2000);
-        
-        // Create some initial hearts
-        for(let i = 0; i < 5; i++) {
-            setTimeout(createFloatingHeart, i * 400);
-        }
+    // Start rotating messages
+    updateMessage();
+    setInterval(updateMessage, 5000); // change every 5 seconds
 
-        // Set initial message input placeholder
-        document.getElementById('messageInput').placeholder = 'Write a sweet message...';
-    </script>
+    // Floating hearts
+    setInterval(createFloatingHeart, 2000);
+    for (let i = 0; i < 5; i++) {
+      setTimeout(createFloatingHeart, i * 400);
+    }
+  </script>
 </body>
 </html>
-
