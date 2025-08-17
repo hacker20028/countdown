@@ -189,7 +189,7 @@
     
     <div class="container">
         <h1 class="title">Until We Meet Again</h1>
-        <p class="subtitle"> 🐻 &  🐥</p>
+        <p class="subtitle">Aryan 🐻 & Hrutuja 💖</p>
         
         <div class="countdown" id="countdown">
             <div class="time-unit">
@@ -213,34 +213,43 @@
         <div class="hearts">💕 ❤️ 💖 ❤️ 💕</div>
         
         <p class="message" id="message">
-            Every second brings us closer to being in each other's arms again! 🥺❤️
+            I miss you Hru 🥺
         </p>
         
-        <div class="edit-section">
-            <h3 style="margin-bottom: 1rem;">Set Your Meeting Date</h3>
-            <div>
-                <input type="datetime-local" class="edit-input" id="dateInput">
-                <br>
-                <button class="set-button" onclick="setCountdown()">Set Countdown ❤️</button>
-            </div>
-            <div style="margin-top: 1rem;">
-                <input type="text" class="edit-input" id="messageInput" placeholder="Custom message..." maxlength="100">
-                <br>
-                <button class="set-button" onclick="setMessage()">Update Message 💕</button>
-            </div>
-        </div>
     </div>
 
     <script>
-        let countdownDate = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // Default: 7 days from now
+        let countdownDate = new Date('2026-07-07T15:33:00').getTime(); // Default: July 7th, 2026 at 3:33 PM
         let countdownInterval;
+        let messageInterval;
+        let currentMessageIndex = 0;
+
+        const messages = [
+            "I miss you Hru 🥺",
+            "Can't wait to see you Pippo😭🐥",
+            "You're only my Gadhiii😤🫏",
+            "My heart beats only for you bebe💖",
+            "Counting every second until I hold you🫂",
+            "You're my whole universe Cutiee✨",
+            "Missing your hugs so muchhhh🥺❤️",
+            "Can't wait to see your beautiful smile😍",
+            "You make everything better my love💕",
+            "Forever yours, my Sardard💖🐻",
+            "Dreaming of our future together✨",
+            "You're the best thing in my life🥰",
+            "Missing your voice and laughter😭💗",
+            "Can't wait to make more memories🫶",
+            "You complete me in every way💫"
+        ];
 
         // Load saved data
         if (localStorage.getItem('meetingDate')) {
             countdownDate = parseInt(localStorage.getItem('meetingDate'));
         }
-        if (localStorage.getItem('customMessage')) {
-            document.getElementById('message').textContent = localStorage.getItem('customMessage');
+
+        function updateMessage() {
+            document.getElementById('message').textContent = messages[currentMessageIndex];
+            currentMessageIndex = (currentMessageIndex + 1) % messages.length;
         }
 
         function updateCountdown() {
@@ -252,7 +261,7 @@
                 document.getElementById('hours').textContent = '00';
                 document.getElementById('minutes').textContent = '00';
                 document.getElementById('seconds').textContent = '00';
-                document.getElementById('message').textContent = "It's time! We should be together now! 🎉❤️🥹";
+                document.getElementById('message').textContent = "It's time! You should be together now! 🎉❤️";
                 return;
             }
 
@@ -265,18 +274,6 @@
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-
-        function setCountdown() {
-            const dateInput = document.getElementById('dateInput').value;
-            if (dateInput) {
-                countdownDate = new Date(dateInput).getTime();
-                localStorage.setItem('meetingDate', countdownDate.toString());
-                updateCountdown();
-                alert('Countdown date set! ❤️');
-            } else {
-                alert('Please select a date and time!');
-            }
         }
 
         function setMessage() {
@@ -316,10 +313,8 @@
             setTimeout(createFloatingHeart, i * 400);
         }
 
-        // Set initial date input to current date/time
-        const now = new Date();
-        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-        document.getElementById('dateInput').value = now.toISOString().slice(0, 16);
+        // Set initial message input placeholder
+        document.getElementById('messageInput').placeholder = 'Write a sweet message...';
     </script>
 </body>
 </html>
